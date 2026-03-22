@@ -87,7 +87,7 @@ The dashboard provides:
 ## 👥 Team Members
 - Disha Gupta
 - Shahin khan
-- Tripti Tiwar
+- Tripti Tiwari
 
 ---
 
