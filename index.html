@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>AI Smart Study Planner</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            background: linear-gradient(to right, #74ebd5, #ACB6E5);
+            text-align: center;
+        }
+
+        h1 {
+            color: #333;
+            margin-top: 20px;
+        }
+
+        form {
+            background: white;
+            padding: 20px;
+            margin: auto;
+            width: 320px;
+            border-radius: 10px;
+            box-shadow: 0px 5px 15px gray;
+        }
+
+        input, select {
+            width: 90%;
+            padding: 10px;
+            margin: 10px;
+            border-radius: 5px;
+            border: 1px solid gray;
+        }
+
+        button {
+            background: #007bff;
+            color: white;
+            padding: 10px;
+            border: none;
+            width: 95%;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #0056b3;
+        }
+
+        #result {
+            margin-top: 20px;
+            font-size: 16px;
+            font-weight: bold;
+            color: #333;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>📚 AI Smart Study Planner</h1>
+
+    <form>
+        <input type="text" placeholder="Enter Your Name" required>
+
+        <select id="subject">
+            <option>Select Subject</option>
+            <option>OS</option>
+            <option>DBMS</option>
+            <option>CN</option>
+            <option>SE</option>
+            <option>M3</option>
+        </select>
+
+        <input type="number" id="hours" placeholder="Study Hours">
+
+        <input type="date" id="date">
+
+        <select id="status">
+            <option>Status</option>
+            <option>Completed</option>
+            <option>Pending</option>
+        </select>
+
+        <button type="button" onclick="generatePlan()">Generate Study Plan</button>
+
+        <!-- RESULT WILL SHOW HERE -->
+        <div id="result"></div>
+
+    </form>
+
+    <script>
+        function generatePlan() {
+            let hours = document.getElementById("hours").value;
+            let status = document.getElementById("status").value;
+
+            let message = "";
+
+            if (status === "Pending") {
+                message = "⚠️ Focus more on this subject!";
+            } 
+            else if (hours < 2) {
+                message = "⚠️ Increase your study hours!";
+            } 
+            else if (hours >= 2 && hours <= 3) {
+                message = "👍 Good! Maintain your routine.";
+            } 
+            else {
+                message = "🔥 Excellent performance! Keep it up!";
+            }
+
+            document.getElementById("result").innerHTML = "AI Suggestion: " + message;
+        }
+    </script>
+
+</body>
+</html>
